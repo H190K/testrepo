@@ -3,15 +3,38 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #0a0a0a;
+    background: #121212;
     color: #ffffff;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
 }
 
+/* Moving Background */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(0, 100, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 0, 100, 0.1) 0%, transparent 50%);
+    animation: moveBackground 30s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveBackground {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* Container */
 .container {
     text-align: center;
     max-width: 800px;
@@ -20,90 +43,65 @@ body {
 
 /* Text Styles */
 .title {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
-    background: linear-gradient(90deg, #00ffff, #ff00ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
 }
 
 .message {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+    font-weight: 300;
 }
 
 /* Button Styles */
 .btn {
     display: inline-block;
-    padding: 1rem 2rem;
-    background: linear-gradient(45deg, #00ffff, #ff00ff);
-    color: #000;
+    padding: 1.5rem 3rem;
+    background: transparent;
+    color: #fff;
     text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    margin: 1rem 0;
-    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
     transition: all 0.3s ease;
 }
 
 .btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(255, 0, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* Language Switcher */
 .language-switcher {
-    margin-top: 2rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
 }
 
 .lang-btn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    border: none;
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     margin: 0 0.5rem;
-    border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-size: 1.5rem;
+    opacity: 0.7;
 }
 
 .lang-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 2px 15px rgba(0, 255, 255, 0.4);
+    opacity: 1;
 }
 
 .lang-btn.active {
-    background: linear-gradient(45deg, #00ffff, #ff00ff);
-    color: #000;
-    font-weight: bold;
-}
-
-/* Particle Animation */
-.particle {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0.5;
-    animation: float linear infinite;
-}
-
-@keyframes float {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0.5;
-    }
-    50% {
-        transform: translate(50px, 50px) scale(1.2);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translate(100px, 0) scale(1);
-        opacity: 0.5;
-    }
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 /* Animations */
@@ -115,9 +113,4 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-/* RTL Support for Arabic */
-html[dir="rtl"] .container {
-    direction: rtl;
 }
