@@ -1,6 +1,0 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30' width='40' height='20'>
-    <rect width='60' height='30' fill='#ce1126'/>
-    <rect width='60' height='10' y='10' fill='#fff'/>
-    <text x='30' y='20' font-size='8' fill='#000' text-anchor='middle' font-family='Arial' font-weight='bold'>الجمهورية العراقية</text>
-    <path fill='none' stroke='#000' stroke-width='0.5' d='M15 14h30v4H15z'/>
-</svg>
