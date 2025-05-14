@@ -94,6 +94,9 @@ body::before {
     cursor: pointer;
     transition: all 0.3s ease;
     filter: grayscale(0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .lang-btn:hover {
@@ -110,17 +113,17 @@ body::before {
     border-radius: 50%;
     object-fit: cover;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: none;
+    display: block;
 }
 
 .lang-btn:hover .flag-icon {
-    border-color: #ffd700;
     transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .lang-btn.active .flag-icon {
-    border-color: #ffd700;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
 }
 
 /* Animations */
