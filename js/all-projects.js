@@ -1,5 +1,5 @@
 import { initStorePopup } from './popup-utils.js';
-import projects from './projects.js';
+import { projects } from './projects.js';
 
 // Initialize all projects on page load with enhanced animations
 window.addEventListener('DOMContentLoaded', () => {
@@ -12,7 +12,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const animDuration = styles.getPropertyValue('--animation-duration').trim() || '0.8s';
     const animEasing = styles.getPropertyValue('--animation-easing').trim() || 'cubic-bezier(0.25, 0.1, 0.25, 1.0)';
     
-    // Add projects to the grid
     projects.forEach((p, index) => {
       grid.insertAdjacentHTML('beforeend', `
         <div class="project-card" style="animation-delay: ${index * 0.1}s">
