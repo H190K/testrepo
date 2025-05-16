@@ -1,7 +1,9 @@
-import { projects } from './projects.js';
+import { initStorePopup } from './popup-utils.js';
+import projects from './projects.js';
 
 // Initialize all projects on page load with enhanced animations
 window.addEventListener('DOMContentLoaded', () => {
+  initStorePopup();
   const grid = document.getElementById('projects-grid');
   
   if (grid) {
