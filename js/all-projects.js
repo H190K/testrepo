@@ -1,5 +1,4 @@
 import { projects } from './projects.js';
-import { card } from './utils.js';
 
 // Initialize all projects on page load with enhanced animations
 window.addEventListener('DOMContentLoaded', () => {
@@ -13,7 +12,20 @@ window.addEventListener('DOMContentLoaded', () => {
     
     // Add projects to the grid
     projects.forEach((p, index) => {
-      grid.insertAdjacentHTML('beforeend', card(p));
+      grid.insertAdjacentHTML('beforeend', `
+        <div class="project-card" style="animation-delay: ${index * 0.1}s">
+          <div class="project-image">
+            <img src="${p.img}" alt="${p.title}" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3>${p.title}</h3>
+            <p>${p.desc}</p>
+            <button class="btn-secondary" onclick="window.open('${p.link}','_blank')">
+              ${p.button || 'View Project'}
+            </button>
+          </div>
+        </div>
+      `);
     });
     
     // Add scroll animations for elements that enter viewport
