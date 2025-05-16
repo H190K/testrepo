@@ -9,8 +9,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (menuToggle) {
         menuToggle.addEventListener('click', function() {
+            // Toggle menu state
             nav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+            
+            // Animate burger icon
+            this.classList.toggle('active');
+            const icon = this.querySelector('i');
+            
+            if (this.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
     }
     
@@ -27,6 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (nav.classList.contains('active')) {
                     nav.classList.remove('active');
                     menuToggle.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
                 }
                 
                 const targetId = this.getAttribute('href');
