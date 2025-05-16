@@ -200,6 +200,54 @@ footer{
 .social-links a{margin:0 15px;font-size:1.5rem;transition:color var(--transition-speed)}
 .social-links a:hover{color:var(--accent-color)}
 
+/* ───────────────  Store Popup Styles  ─────────────── */
+.store-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 15px;
+  max-width: 300px;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.popup-content {
+  position: relative;
+}
+
+.close-popup {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .store-popup {
+    max-width: calc(100% - 40px);
+    left: 20px;
+    right: 20px;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ───────────────  Animations  ─────────────── */
 @keyframes fadeInUp{
   from{opacity:0;transform:translateY(25px)}
