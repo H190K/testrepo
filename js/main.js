@@ -1,6 +1,5 @@
 import { getFeaturedProjects, projects } from './projects.js';
 import config from './config.js';
-import { card } from './utils.js';
 
 window.config = config;
 
@@ -10,7 +9,22 @@ export function initProjects() {
   const grid = document.getElementById('projects-grid');
   
   if (grid) {
-    featured.forEach(p => grid.insertAdjacentHTML('beforeend', card(p)));
+    featured.forEach(p => {
+      grid.insertAdjacentHTML('beforeend', `
+        <div class="project-card">
+          <div class="project-image">
+            <img src="${p.img}" alt="${p.title}" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3>${p.title}</h3>
+            <p>${p.desc}</p>
+            <button class="btn-secondary" onclick="window.open('${p.link}','_blank')">
+              ${p.button || 'View Project'}
+            </button>
+          </div>
+        </div>
+      `);
+    });
     
     if (projects.length > featured.length) {
       document.getElementById('view-all-wrapper').innerHTML =
