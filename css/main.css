@@ -116,13 +116,6 @@ main section:nth-of-type(even){background:var(--secondary-bg)}
   margin-top: 100px;   
   margin-bottom: 50px; 
 }
-#view-all-wrapper .btn-secondary {
-  padding: 15px 60px !important;
-  font-size: 1rem !important;
-  width: auto !important;
-  max-width: none !important;
-  margin: 0 auto !important;
-}
 .project-card{
   background:var(--primary-bg);border:2px solid var(--border-color);border-radius:10px;
   overflow:hidden;padding-bottom:25px;display:flex;flex-direction:column;
