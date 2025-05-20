@@ -1,151 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Cache-Control" content="max-age=7200, must-revalidate" />
-  <meta http-equiv="Pragma"        content="no-cache" />
-  <meta http-equiv="Expires"       content="0" />
-  <meta name="description" content="H190K - Web Developer Portfolio of Hasan Albehadili showcasing projects, skills, and contact information.">
-  <title>H190K | Web Developer Portfolio</title>
-  
-  <!-- Favicon -->
-  <link rel="icon" href="img/icon.png" type="image/png">
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome for Social Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
-  <!-- Lazy Load Library -->
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
-  
-  <!-- CSS Styles -->
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/popup.css">
-  
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate">
+    <meta http-equiv="Expires" content="3600">
+    <title>H190K Store | Web Development Services</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- EmailJS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
-  <!-- Navigation -->
-  <header id="navbar" role="banner">
-    <div class="container nav-container">
-      <a href="#" class="logo" aria-label="Go to top"
-         onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">
-        H190K
-      </a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#donation">Donate</a></li>
-        <li><a href="https://store.h190k.com" target="_blank">Store</a></li>
-      </ul>
-      <div class="burger" role="button" tabindex="0" aria-label="Toggle Navigation">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-      </div>
-    </div>
-  </header>
-  
-  <!-- Main Content -->
-  <main>
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <h1>Hi, I'm H190K</h1>
-        <p>Enthusiastic Web Developer dedicated to building visually striking and highly functional websites.</p>
-        <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });">View My Work</button>
-        <!-- scroll-down arrow -->
-        <div class="scroll-down">
-          <i class="fas fa-chevron-down arrow-down"
-             onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });"
-             aria-label="Scroll down"></i>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">H190K Store</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-      </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about">
-      <div class="container">
-        <div class="about-content">
-          <h2>About Me</h2>
-          <p>My name is Hasan Albehadili, a software engineering student who loves to design websites. H190K is my slogan and brand, representing my commitment to creating seamless and engaging web experiences that make an impact.</p>
+    </header>
+
+    <section class="hero">
+        <img src="images/hero.png" alt="Hero background" loading="lazy" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Professional Web Development Services</h1>
+            <p>Elevate your online presence with custom web solutions tailored to your needs</p>
+            <a href="#services" class="btn hero-btn">Explore Services</a>
         </div>
-      </div>
     </section>
-    
-    <!-- Projects Section -->
-    <section id="projects">
-      <div class="container">
-        <h2>My Projects</h2>
-        <div class="projects-grid" id="projects-grid"></div>
-        <div id="view-all-wrapper"></div>
-      </div>
-    </section>
-    
-    <!-- Skills Section -->
-    <section id="skills">
-      <div class="container">
-        <h2>My Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-card"><div class="skill-icon"><i class="fas fa-code"></i></div><h3>Frontend Development</h3><p>HTML, CSS, JavaScript</p></div>
-          <div class="skill-card"><div class="skill-icon"><i class="fas fa-database"></i></div><h3>Backend Development</h3><p>MongoDB, MySQL, Supabase</p></div>
-          <div class="skill-card"><div class="skill-icon"><i class="fas fa-paint-brush"></i></div><h3>Design</h3><p>Adobe, Figma</p></div>
-          <div class="skill-card"><div class="skill-icon"><i class="fas fa-cloud"></i></div><h3>Cloud Services</h3><p>Heroku, Render, Netlify</p></div>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive web development solutions to help your business thrive online</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Landing Page Design</h3>
+                    <p>Captivating, conversion-focused landing pages that make a strong first impression and drive action.</p>
+                    <a href="#pricing" class="service-link">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Dashboard Design</h3>
+                    <p>Intuitive, data-rich dashboards that provide clear insights and streamline decision-making.</p>
+                    <a href="#pricing" class="service-link">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Productivity Tools</h3>
+                    <p>Custom tools and automation solutions to enhance workflow efficiency and productivity.</p>
+                    <a href="#pricing" class="service-link">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>DNS & Domain Management</h3>
+                    <p>Professional domain and DNS management services to ensure your online presence is secure and reliable.</p>
+                    <a href="#pricing" class="service-link">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Full Stack Development</h3>
+                    <p>End-to-end web application development with seamless frontend and backend integration.</p>
+                    <a href="#pricing" class="service-link">Learn More</a>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-    
-    <!-- Contact Section -->
-    <section id="contact">
-      <div class="container">
-        <h2>Get In Touch</h2>
-        <div class="contact-form">
-          <form id="contact-form">
-            <input type="hidden" name="to_name" value="H190K">
-            <input type="text" id="from_name" name="from_name" placeholder="Name/Surname" required>
-            <input type="email" id="from_email" name="from_email" placeholder="Your-Email" required>
-            <textarea id="message" name="message" rows="5" placeholder="Your-Message" required></textarea>
-            <button type="submit">Send Message</button>
-            <p id="form-message" style="display: none;"></p>
-          </form>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pricing Plans</h2>
+                <p>Transparent pricing for our professional web development services</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Landing Page Design</h3>
+                        <div class="price">$150</div>
+                        <p>One-time payment</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>Custom design</li>
+                            <li>Mobile responsive</li>
+                            <li>SEO optimization</li>
+                            <li>Contact form integration</li>
+                            <li>2 revisions included</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>Dashboard Design</h3>
+                        <div class="price">$200</div>
+                        <p>One-time payment</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>User-friendly interface</li>
+                            <li>Data visualization</li>
+                            <li>Interactive elements</li>
+                            <li>User authentication</li>
+                            <li>3 revisions included</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Productivity Tools</h3>
+                        <div class="price">$100</div>
+                        <p>One-time payment</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>Custom automation</li>
+                            <li>Workflow optimization</li>
+                            <li>Integration capabilities</li>
+                            <li>User documentation</li>
+                            <li>2 revisions included</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>DNS & Domain Management</h3>
+                        <div class="price">$50</div>
+                        <p>Monthly subscription</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>Domain registration</li>
+                            <li>DNS configuration</li>
+                            <li>SSL certificate</li>
+                            <li>Email setup</li>
+                            <li>24/7 monitoring</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Full Stack Website</h3>
+                        <div class="price">$500</div>
+                        <p>One-time payment</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>Custom design</li>
+                            <li>Frontend development</li>
+                            <li>Backend integration</li>
+                            <li>Database setup</li>
+                            <li>3 revisions included</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card custom">
+                    <div class="pricing-header">
+                        <h3>Custom For Your Needs</h3>
+                        <div class="price">Custom</div>
+                        <p>Tailored to your requirements</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li>Personalized solutions</li>
+                            <li>Custom features</li>
+                            <li>Flexible timeline</li>
+                            <li>Dedicated support</li>
+                            <li>Scalable options</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn">Contact Us</a>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-    
-    <!-- Donation Section -->
-    <section id="donation">
-      <div class="container">
-        <h2>Donate</h2>
-        <a href="https://nowpayments.io/donation?api_key=J0QACAH-BTH4F4F-QDXM4ZS-RCA58BH" target="_blank" rel="noreferrer noopener">
-          <img src="https://nowpayments.io/images/embeds/donation-button-black.svg" alt="Crypto donation button by NOWPayments" loading="lazy">
-        </a>
-      </div>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Portfolio</h2>
+                <p>Check out some of our recent projects</p>
+            </div>
+            <div class="portfolio-grid" id="portfolio-container">
+                <!-- Portfolio items will be dynamically loaded here -->
+            </div>
+        </div>
     </section>
-  </main>
-  
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 H190K. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://instagram.com/frh190k" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://x.com/h190k" target="_blank" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-        <a href="mailto:info@h190k.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      </div>
-    </div>
-  </footer>
-  
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  
-  <!-- JavaScript -->
-  <script src="js/projects.js" type="module"></script>
-  <script src="js/main.js" type="module"></script>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your project? Contact us today!</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <input type="text" id="name" name="from_name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="from_email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" name="service_type" required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="landing-page">Landing Page Design</option>
+                                <option value="dashboard">Dashboard Design</option>
+                                <option value="tools">Productivity Tools</option>
+                                <option value="dns">DNS & Domain Management</option>
+                                <option value="full-stack">Full Stack Website</option>
+                                <option value="custom">Custom For Your Needs</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                    <div id="form-status" class="form-status"></div>
+                </div>
+                <div class="social-container">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://twitter.com/h190k" target="_blank" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/FRH190K" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p class="email-contact">Or email us directly at: <a href="mailto:info@h190k.com">info@h190k.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>H190K Store</h3>
+                    <p>Professional web development services</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 H190K Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/script.js"></script>
+    <script type="module">
+        import { getFeaturedProjects } from './js/projects.js';
+        
+        // Function to create portfolio items
+        function createPortfolioItems() {
+            const portfolioContainer = document.getElementById('portfolio-container');
+            
+            // Clear any existing content
+            portfolioContainer.innerHTML = '';
+            
+            // Get only featured projects for homepage
+            const featuredProjects = getFeaturedProjects();
+            
+            // Loop through featured projects and create elements
+            featuredProjects.forEach(project => {
+                const portfolioItem = document.createElement('div');
+                portfolioItem.className = 'portfolio-item';
+                
+                // Create image element
+                const img = document.createElement('img');
+                img.src = project.img;
+                img.alt = project.title;
+                img.onerror = function() {
+                    // Fallback if image fails to load
+                    this.src = 'https://via.placeholder.com/300x200?text=Project+Image';
+                };
+                
+                // Create content div for project details
+                const overlay = document.createElement('div');
+                overlay.className = 'portfolio-overlay';
+                
+                const title = document.createElement('h3');
+                title.textContent = project.title;
+                
+                const desc = document.createElement('p');
+                desc.textContent = project.desc;
+                
+                const link = document.createElement('a');
+                link.href = project.link;
+                link.target = '_blank';
+                link.className = 'btn';
+                
+                // Use custom button text if provided, otherwise determine based on URL
+                if (project.button) {
+                    link.textContent = project.button;
+                } else if (project.link.includes('github.com')) {
+                    link.textContent = 'Download Extension';
+                } else {
+                    link.textContent = 'View Project';
+                }
+                
+                // Append elements to overlay
+                overlay.appendChild(title);
+                overlay.appendChild(desc);
+                overlay.appendChild(link);
+                
+                // Append image and content to portfolio item
+                portfolioItem.appendChild(img);
+                portfolioItem.appendChild(overlay);
+                
+                // Append portfolio item to container
+                portfolioContainer.appendChild(portfolioItem);
+            });
+            
+            // Add View All Projects button
+            const viewAllContainer = document.createElement('div');
+            viewAllContainer.className = 'view-all-container';
+            
+            const viewAllBtn = document.createElement('a');
+            viewAllBtn.href = 'projects.html';
+            viewAllBtn.className = 'btn view-all-btn';
+            viewAllBtn.textContent = 'View All Projects';
+            
+            viewAllContainer.appendChild(viewAllBtn);
+            portfolioContainer.parentElement.appendChild(viewAllContainer);
+        }
+        
+        // Initialize portfolio when DOM is loaded
+        document.addEventListener('DOMContentLoaded', createPortfolioItems);
+    </script>
 </body>
 </html>
