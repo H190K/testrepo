@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animation on scroll
     const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.service-card, .pricing-card, .portfolio-item, .contact-item');
+        const elements = document.querySelectorAll('.service-card, .portfolio-item, .contact-item');
         
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // Set initial styles for animation
-    const elementsToAnimate = document.querySelectorAll('.service-card, .pricing-card, .portfolio-item, .contact-item');
+    const elementsToAnimate = document.querySelectorAll('.service-card, .portfolio-item, .contact-item');
     elementsToAnimate.forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(20px)';
