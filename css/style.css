@@ -161,8 +161,9 @@ nav ul li a:hover::after {
 /* Burger Menu Styling */
 .menu-toggle {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
   z-index: 1001;
   width: 2.5rem;
   height: 2.5rem;
@@ -195,6 +196,7 @@ nav ul li a:hover::after {
         transition: right 0.3s ease;
         z-index: 1000;
         padding: 80px 20px 20px;
+        box-sizing: border-box;
     }
     
     nav.active {
