@@ -395,6 +395,8 @@ nav ul li a:hover::after {
     will-change: transform, box-shadow;
     position: relative;
     z-index: 0;
+    margin: 15px;
+    transform: translateZ(0);
 }
 
 .pricing-card:hover {
