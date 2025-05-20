@@ -377,6 +377,7 @@ nav ul li a:hover::after {
     position: relative;
     isolation: isolate;
     z-index: 1;
+    perspective: 1000px;
 }
 
 /* Pricing Card Styles */
@@ -385,18 +386,18 @@ nav ul li a:hover::after {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
-    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 1.5), 
-              box-shadow 0.35s ease;
+    transition: all 0.4s ease;
     transform-origin: center;
-    will-change: transform;
+    will-change: transform, box-shadow;
     backface-visibility: hidden;
     position: relative;
     z-index: 0;
+    transform-style: preserve-3d;
 }
 
 .pricing-card:hover {
-    transform: scale(1.07);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     z-index: 2;
 }
 
