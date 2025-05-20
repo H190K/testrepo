@@ -398,13 +398,12 @@ nav ul li a:hover::after {
     display: flex;
     flex-direction: column;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease;
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
 
 .pricing-card:hover {
-    transform: scale(1.08) rotateY(10deg) rotateX(3deg);
     box-shadow: 0 35px 70px rgba(0, 0, 0, 0.3);
     z-index: 2;
 }
@@ -417,7 +416,7 @@ nav ul li a:hover::after {
     backface-visibility: hidden;
 }
 
-/* Add a subtle transform to child elements on hover for better 3D effect */
+/* Subtle transform for child elements on hover (optional, can be adjusted) */
 .pricing-card:hover .pricing-header {
     transform: translateZ(20px);
 }
