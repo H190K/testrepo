@@ -379,7 +379,7 @@ nav ul li a:hover::after {
     position: relative;
     isolation: isolate;
     z-index: 1;
-    perspective: 1000px;
+    perspective: 1200px;
 }
 
 .pricing-card {
@@ -387,7 +387,7 @@ nav ul li a:hover::after {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     transform-style: preserve-3d;
     transform-origin: center center;
     will-change: transform, box-shadow;
@@ -396,9 +396,9 @@ nav ul li a:hover::after {
 }
 
 .pricing-card:hover {
-    transform: scale(1.1) rotateX(5deg) rotateY(5deg);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25),
-                0 15px 15px rgba(0, 0, 0, 0.15);
+    transform: scale(1.08) rotateX(3deg) rotateY(3deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
+                0 10px 10px rgba(0, 0, 0, 0.1);
     z-index: 5;
 }
 
@@ -409,14 +409,21 @@ nav ul li a:hover::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
     pointer-events: none;
 }
 
 .pricing-card:hover::after {
     opacity: 1;
+}
+
+/* Add smooth transition for all interactive elements inside pricing card */
+.pricing-card .btn,
+.pricing-card .pricing-header,
+.pricing-card .pricing-features {
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .pricing-header {
