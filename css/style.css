@@ -70,20 +70,21 @@ body {
     position: relative;
 }
 
-/* Animated Coding Background - More Subtle */
+/* Animated Coding Background - Behind static content */
 .code-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -1;       /* Behind static content */
     overflow: hidden;
-    opacity: 0.02;
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 [data-theme="light"] .code-background {
-    opacity: 0.01;
+    opacity: 0.25;
 }
 
 .code-line {
@@ -98,25 +99,23 @@ body {
 
 @keyframes float-code {
     from {
-        transform: translateX(-100%);
+        transform: translateX(-100vw);
     }
     to {
         transform: translateX(100vw);
     }
 }
 
-/* Gradient Overlay for better readability */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, transparent 0%, var(--bg-color) 100%);
-    pointer-events: none;
-    z-index: -1;
+@keyframes float-code-alt {
+    from {
+        transform: translateX(100vw);
+    }
+    to {
+        transform: translateX(-100vw);
+    }
 }
+
+/* Gradient overlay removed to let code background show through */
 
 /* Modern Container */
 .container {
@@ -532,7 +531,7 @@ footer {
 
 /* Modern Portfolio Section */
 .portfolio {
-    background-color: var(--bg-color);
+    background-color: transparent;
     position: relative;
 }
 
@@ -1280,4 +1279,12 @@ body.rtl-layout .footer-newsletter form {
 
 .rtl-layout .footer-newsletter .btn {
     border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+/* Hide content until code background is loaded */
+body.loading > :not(.code-background) {
+    visibility: hidden;
+}
+body.loading .code-background {
+    visibility: visible;
 }

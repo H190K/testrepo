@@ -52,6 +52,8 @@ class CodeBackground {
             'CMD ["node", "server.js"]'
         ];
         
+        this.loaded = false; // flag to indicate first line rendered
+        
         this.init();
     }
 
@@ -89,6 +91,16 @@ class CodeBackground {
         const line = document.createElement('div');
         line.className = 'code-line';
         
+        // Randomize animation direction: left-to-right or right-to-left
+        if (Math.random() < 0.5) {
+            line.style.animationName = 'float-code-alt';
+        } // else default to 'float-code'
+        
+        if (!this.loaded) {
+            document.body.classList.remove('loading');
+            this.loaded = true;
+        }
+        
         // Random code snippet
         const snippet = this.codeSnippets[Math.floor(Math.random() * this.codeSnippets.length)];
         line.textContent = snippet;
@@ -124,7 +136,12 @@ class CodeBackground {
     }
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize CodeBackground when DOM is ready (or immediately if already loaded)
+function initCodeBackground() {
     new CodeBackground();
-}); 
+}
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCodeBackground);
+} else {
+    initCodeBackground();
+} 
